@@ -1,0 +1,86 @@
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;width: 100%;} 
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav hidden-xs">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" id="v-pills-menu-tab" data-toggle="pill" role="tab" aria-selected="true">Parameters</a>
+        <a class="nav-link active"  id="v-pills-param-tab" data-toggle="pill" role="tab" aria-selected="true">Summary</a>
+        <a class="nav-link" routerLink="/cpu" id="v-pills-cpu-tab" data-toggle="pill" role="tab" aria-selected="false">CPU</a>
+        <a class="nav-link" routerLink="/disk" id="v-pills-disk-tab" data-toggle="pill"  role="tab"  aria-selected="false">Disk</a>
+        <a class="nav-link" routerLink="/memory" id="v-pills-memory-tab" data-toggle="pill" role="tab"  aria-selected="false">Memory</a>
+        <a class="nav-link" routerLink="/disklist" id="v-pills-datalist-tab" data-toggle="pill" role="tab" aria-selected="false">Top Disk</a>
+        <a class="nav-link" routerLink="/memorylist" id="v-pills-memorylist-tab" data-toggle="pill" role="tab"  aria-selected="false">Top Memory</a>
+        <a class="nav-link" routerLink="/power" id="v-pills-memorylist-tab" data-toggle="pill" role="tab"  aria-selected="false">Power</a>
+      </div>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <app-display-hostname></app-display-hostname>
+      <h3>Summary</h3>
+      <div class="row" id="divrow">
+        <div class="col-sm-3">
+          <div class="well">
+            <h3>CPU</h3>
+            <p>
+              <b>Utilization: {{cpuPercent}} %</b></p> 
+              <h5>CPU Utilization shows the burden on the processor in terms of percentage that indicates if any changes to be made in the system otherwise it may get exhausted of capacity.</h5>
+            
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h3>Disk</h3>
+            <p><b>Used Percent: {{diskUsed}} %</b></p> 
+            <h5>Disk Percentage indicates the amount of disk space that has been already used up. If it is above the critical limits, actions need to be taken accordingly.</h5>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h3>Memory</h3>
+            <p><b>Ram Usage: {{ramPercent}} %</b></p> 
+            <h5>Ram Usage indicates the percentage ram being used at a particular instant by the machine. Ram usage affects the speed of the machine.</h5>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h3>Power</h3>
+            <p><b>Heat generated - {{avgPower}}°C</b></p> 
+            <h5>Power gives an estimation of the heat generated when the machine is performing some task. This factor has a great impact on the environment and so should be montiored at regular intervals.</h5>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
+
+</body>
+
+

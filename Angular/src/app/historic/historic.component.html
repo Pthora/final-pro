@@ -1,0 +1,80 @@
+<head>
+  <title>Historic Analysis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="jumbotron">
+  <div class="well" id="divWellAboveHost">
+    <h3 id="name">Showing for host @ {{hostname}}</h3>
+    <div class="row">
+      <div class="form-group">
+        <div id="abovedrop">
+          <div class="dropdown">
+             <button type="button" class="btn btn-dark" id="button1">
+              Change Host
+            </button> 
+            <button type="button" class="btn btn-block btn-lg btn-dark" id="button2" routerLink="/realTime">Real-Time Analysis</button>
+            <select class="form-control form-control-lg" id="sel1" (change)="myClickFunction($event)">
+              <option *ngFor="let name of hostnameList; let i = index" value="{{i}}">{{name}}</option>
+            </select>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+  
+<div class="container-fluid bg-3"> 
+  <h3><b>Select the range</b></h3>   
+  <div class="w3-left">
+    <h3 id="timeSet">From</h3>
+    <input class="form-control form-control-lg" type="datetime-local" (input)="myClickFunction2($event)"  id="datetime1"> 
+  </div>
+  
+  <div class="w3-center">
+    <h3 id=timeSet2>To</h3>
+    <input class="form-control form-control-sm" type="datetime-local" (input)="myClickFunction4($event)"  id="datetime2"> 
+    <button id="button3" class="btn btn-dark" (click)="onView()" routerLink="/historic/chartDisplay">View</button>
+</div>
+  <div class="select">
+    
+    <!-- <select class="form-control form-control-lg"  id="sel2" (change)="myClickFunction3($event)">
+      <option>1 hour</option>
+      <option>6 hours</option>
+      <option>12 hours</option>
+      <option>24 hours</option>
+    </select> -->
+    
+   
+    
+
+  </div>
+  
+  
+  
+
+
+<router-outlet></router-outlet>
+</div><br><br>
+</body>
