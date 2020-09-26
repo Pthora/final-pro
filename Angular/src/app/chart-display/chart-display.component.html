@@ -8,4 +8,6 @@
     <button class="btn btn-dark" (click)="onView()">View</button> </div> -->
   <div><canvas #canvas width="600" height="300">{{ chart }}</canvas> 
   <canvas #canvasCpu width="600" height="300">{{ chartCpu }}</canvas>
-  <canvas #canvasPower width="600" height="300">{{ chartPower }}</canvas></div>
+  <canvas #canvasPower width="600" height="300">{{ chartPower }}</canvas>
+  <button (click)="exportToPDF()">Export to PDF</button>
+</div>
