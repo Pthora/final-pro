@@ -7,6 +7,7 @@ import { map, switchMap } from 'rxjs/operators'
 import { MemoryService } from '../Memory/memory.service'
 import { Chart, ChartPoint } from 'chart.js'
 import { Power } from '../power/power';
+import { jsPDF } from "jspdf";
 import { HistoricService } from '../historic/historic.service';
 
 @Component({
@@ -65,7 +66,22 @@ export class ChartDisplayComponent implements OnInit {
         this.getPower();
 
     }
-
+  
+    exportToPDF()
+    {
+      
+      const doc = new jsPDF();    
+      let canvasElementsArray = document.getElementsByTagName('canvas')
+      for (let i = 0; i < canvasElementsArray.length; i++)
+      {
+        let y = 10;
+        doc.addImage(canvasElementsArray[i], "PNG", 10, i*80+y*i+20, 150, 80);
+        
+        }
+     
+      doc.save("charts.pdf")
+  
+    }
 
     public getRamPercent() {
 
